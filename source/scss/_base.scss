@@ -1,0 +1,242 @@
+// reset ///////////////////////////////////////////////////////////////////////////////
+html {
+  font-size: 16px;
+}
+body {
+  font-family: $sans_font;
+  color: $text_1;
+  -webkit-font-smoothing: antialiased;
+}
+.no-csschunit {
+  body {
+    font-family: $sans_font_ie;
+  }
+}
+::selection {
+  background: rgba(47, 141, 246, .3);
+  color: $text_1;
+  text-shadow: none;
+}
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+a {
+  color: $main_color;
+  -moz-transition: all .2s ease-in;
+  -webkit-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+  &:hover {
+    color: $text_1;
+  }
+}
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+
+// class ///////////////////////////////////////////////////////////////////////////////
+.container-fluid {
+  padding: 0 35px;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
+.sep {
+  display: inline-block;
+  margin: 0 7px;
+  color: #999;
+  font-size: 14px;
+}
+
+
+// common ///////////////////////////////////////////////////////////////////////////////
+%border-top {
+  border-top: 1px solid $border_color;
+}
+%dark-link {
+  color: $text_1;
+  border-color: $text_1;
+  &:hover {
+    color: $text_2;
+    border-color: $text_2;
+  }
+}
+
+
+
+
+// content plus /////////////////////////////////////////////////////////////////////////
+.content-plus {
+  word-wrap: break-word;
+  word-break: normal;
+  line-height: 1.8;
+  font-size: 18px;
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  p {
+    margin-bottom: 1.5em;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+  h1,h2,h3,h4,h5,h6 {
+    color: $text_1;
+    line-height: 1.2;
+    margin: 36px 0 15px 0;
+  }
+  h1 {
+    position: relative;
+    &:after {
+      content: "h1 is not recommended in the content section";
+      font-size: 14px;
+      line-height: 16px;
+      position: absolute;
+      left: 0;
+      top: -16px;
+      color: red;
+    }
+  }
+  h1,h2 {
+    font-size: 1.6em;
+    font-weight: 700;
+    border-bottom: 1px solid $border_1;
+    padding-bottom: 10px;
+  }
+  h3 {
+    font-size: 1.2em;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 1.0em;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  h5,h6 {
+    font-size: .9em;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  h2 + h3,
+  h3 + h4,
+  h4 + h5 {
+    margin-top: 15px;
+  }
+  ul,ol {
+    padding: 0;
+    margin: 0;
+    margin-left: 30px;
+    margin-bottom: 1.5em;
+    ul {
+      margin-bottom: 0;
+    }
+    ol {
+      margin-bottom: 0;
+    }
+  }
+  ul {
+    list-style: disc;
+  }
+  table {
+    margin-bottom: 1.5em;
+    td {
+      padding: 1em;
+      border: 1px solid $border_1;
+    }
+    th {
+      padding: 1em;
+      border: 1px solid $border_1;
+    }
+  }
+  blockquote {
+    font-style: italic;
+    font-size: .9em;
+    font-weight: 400;
+    border-left: 10px solid $border_1;
+    margin: 0;
+    margin-bottom: 1.5em;
+    padding-left: 20px;
+    p {
+      color: $text_3;
+    }
+  }
+  hr {
+    clear: both;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: $border_1;
+    border: none;
+    text-align: center;
+    margin: 35px auto;
+  }
+  figure {
+    width: 100%;
+    margin: 0;
+  }
+  pre {
+    border: none;
+    border-radius: 0;
+    background: #fff;
+    color: #666;
+    margin: 0;
+    margin-bottom: 2em;
+    padding: 0;
+    white-space: pre;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    word-wrap: normal;
+    tab-size: 2;
+    font-size: 14px;
+    line-height: 1.6;
+    position: relative;
+    width: 100%;
+    .caption {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 25px;
+      line-height: 25px;
+      font-size: 12px;
+      font-weight: bold;
+      font-family: $sans_font;
+      color: #fff;
+      padding-left: 15px;
+      background: #222;
+      background: #222;
+    }
+    code {
+      font-family: menlo, monospace;
+      white-space: inherit;
+      margin: 0;
+      padding: 15px 0;
+      background: #fff;
+    }
+  }
+  pre.with-code-caption {
+    padding-top: 25px;
+  }
+  a.link {
+    border-bottom: 1px dotted $main_color;
+    color: $main_color;
+    &:hover {
+      color: $main_color;
+      background: #f4efec;
+      border-color: $text_2;
+      border-bottom: 1px solid $main_color;
+    }
+  }
+}
