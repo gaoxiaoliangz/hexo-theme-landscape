@@ -1,10 +1,14 @@
-<footer id="footer">
+<footer class="colophon">
+  <!-- TODO: what is this? -->
   <% if (theme.sidebar === 'bottom'){ %>
     <%- partial('_partial/sidebar') %>
   <% } %>
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>
+  <div class="container-fluid">
+    <div class="wrap">
+      <div class="info left">&copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %></div>
+      <div class="links right">
+        <%- partial('_partial/navigation', null, {cache: !config.relative_link}) %>
+      </div>
     </div>
   </div>
 </footer>

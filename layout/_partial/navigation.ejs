@@ -1,0 +1,6 @@
+<ul class="nav-menu">
+  <!-- TODO: nav-{{slug}}{{#if current}} nav-current{{/if}} -->
+  <% for (var i in theme.menu){ %>
+    <li class=""><a href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
+  <% } %>
+</ul>
