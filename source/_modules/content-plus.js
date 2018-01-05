@@ -5,7 +5,6 @@ if(kit.isIE()){
 }
 
 var contentPlus = (function(obj){
-
   obj.threshold = 768;
 
   obj.config = function(data){

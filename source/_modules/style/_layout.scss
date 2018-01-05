@@ -436,14 +436,14 @@ article.post:last-child {
 }
 .article-share-input {
   width: 144px;
-  background: #999;
+  background: #666;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0 5px;
   margin: 3px;
   font-size: 12px;
-  color: #555;
+  color: #f2f2f2;
   outline: none;
   border: none;
   -webkit-border-radius: 3px 3px 0 0;
@@ -508,11 +508,11 @@ article.post:last-child {
     background: #cb2027;
   }
 }
-.article-share-google {
-  &:before {
-    background: url(../img/icon-google.png) no-repeat center;
-  }
-  &:hover {
-    background: #dd4b39;
-  }
-}
+// .article-share-google {
+//   &:before {
+//     background: url(../img/icon-google.png) no-repeat center;
+//   }
+//   &:hover {
+//     background: #dd4b39;
+//   }
+// }
