@@ -6,29 +6,39 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass')
   grunt.loadNpmTasks('grunt-contrib-watch')
 
-  const scssTask = (isProduction = false) => {
-    return {
-      options: {
-        sourcemap: isProduction ? 'none' : 'inline',
-        style: 'compressed',
-      },
-      files: [
-        {
-          expand: true,
-          cwd: 'source/_src/style',
-          src: ['*.scss'],
-          dest: 'source/css',
-          ext: '.css'
-        }
-      ]
-    }
-  }
-
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     sass: {
-      dist: scssTask(true),
-      dev: scssTask()
+      dist: {
+        options: {
+          sourcemap: 'none',
+          style: 'compressed',
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'source/_src/style',
+            src: ['*.scss'],
+            dest: 'source/css',
+            ext: '.css'
+          }
+        ]
+      },
+      dev: {
+        options: {
+          sourcemap: 'inline',
+          style: 'compressed',
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'source/_src/style',
+            src: ['*.scss'],
+            dest: 'source/css',
+            ext: '.css'
+          }
+        ]
+      }
     },
     webpack: {
       dev: webpackConfig,
@@ -39,13 +49,16 @@ module.exports = function (grunt) {
       },
       css: {
         files: 'source/_src/**/*.scss',
-        tasks: ['sass:dev']
+        tasks: ['sass:dev'],
+        options: {
+          spawn: true
+        }
       },
       scripts: {
         files: 'source/_src/**/*.*',
         tasks: ['webpack'],
         options: {
-          spawn: false
+          spawn: true
         }
       }
     }

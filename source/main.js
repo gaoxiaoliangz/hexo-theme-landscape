@@ -310,44 +310,11 @@ module.exports = contentPlus;
 "use strict";
 
 
-// Search
-var $searchWrap = $('#search-form-wrap'),
-    isSearchAnim = false,
-    searchAnimDuration = 200;
-
-var startSearchAnim = function startSearchAnim() {
-  isSearchAnim = true;
-};
-
-var stopSearchAnim = function stopSearchAnim(callback) {
-  setTimeout(function () {
-    isSearchAnim = false;
-    callback && callback();
-  }, searchAnimDuration);
-};
-
-$('#nav-search-btn').on('click', function (e) {
-  if (isSearchAnim) return;
-  console.log('hehe');
-  startSearchAnim();
-  $searchWrap.addClass('on');
-  stopSearchAnim(function () {
-    $('.search-form-input').focus();
-  });
-});
-
-$('.search-form-input').on('blur', function () {
-  startSearchAnim();
-  $searchWrap.removeClass('on');
-  stopSearchAnim();
-});
-
 // Share
 $('body').on('click', function () {
   $('.article-share-box.on').removeClass('on');
 }).on('click', '.article-share-link', function (e) {
   e.stopPropagation();
-
   var $this = $(this),
       url = $this.attr('data-url'),
       encodedUrl = encodeURIComponent(url),
@@ -362,7 +329,9 @@ $('body').on('click', function () {
       return;
     }
   } else {
-    var html = ['<div id="' + id + '" class="article-share-box">', '<input class="article-share-input" value="' + url + '">', '<div class="article-share-links">', '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>', '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>', '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>', '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>', '</div>', '</div>'].join('');
+    var html = ['<div id="' + id + '" class="article-share-box">', '<input class="article-share-input" value="' + url + '">', '<div class="article-share-links">', '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>', '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>', '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+    // '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+    '</div>', '</div>'].join('');
 
     var box = $(html);
 

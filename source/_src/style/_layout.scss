@@ -379,8 +379,6 @@ article.post:last-child {
 }
 
 
-
-
 // outliner /////////////////////////////////////////////////////////////////////////
 .outliner-nav-menu {
   .container {
@@ -419,7 +417,102 @@ article.post:last-child {
   }
 }
 
-// cnzz
-a[title="站长统计"] {
+
+// share
+.article-share-box {
+  position: absolute;
   display: none;
+  background: rgba(47,47,47,0.98);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+  border-radius: 4px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin-left: -145px;
+  overflow: hidden;
+  z-index: 1;
+}
+.article-share-box.on {
+  display: block;
+}
+.article-share-input {
+  width: 144px;
+  background: #999;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 5px;
+  margin: 3px;
+  font-size: 12px;
+  color: #555;
+  outline: none;
+  border: none;
+  -webkit-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+  line-height: 27px;
+}
+.article-share-links {
+  &:before {
+    content: "";
+    display: table;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.article-share-twitter,
+.article-share-facebook,
+.article-share-pinterest,
+.article-share-google {
+  width: 50px;
+  height: 36px;
+  display: block;
+  float: left;
+  position: relative;
+  &:before {
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    text-align: center;
+    background-size: 20px 20px !important;
+    content: " ";
+  }
+}
+.article-share-twitter {
+  &:before {
+    background: url(../img/icon-twitter.png) no-repeat center;
+  }
+  &:hover {
+    background: #00aced;
+  }
+}
+.article-share-facebook {
+  &:before {
+    background: url(../img/icon-facebook.png) no-repeat center;
+  }
+  &:hover {
+    background: #3b5998;
+  }
+}
+.article-share-pinterest {
+  &:before {
+    background: url(../img/icon-pinterest.png) no-repeat center;
+  }
+  &:hover {
+    background: #cb2027;
+  }
+}
+.article-share-google {
+  &:before {
+    background: url(../img/icon-google.png) no-repeat center;
+  }
+  &:hover {
+    background: #dd4b39;
+  }
 }
