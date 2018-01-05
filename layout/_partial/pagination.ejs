@@ -2,7 +2,7 @@
 <div class="nav-bottom nav-pagination">
   <div class="container-fluid">
     <ul>
-      <% if (page.prev_link) { %>
+      <% if (page.prev !== 0) { %>
       <li class="prev"><a class="newer-posts" href="<%- url_for(page.prev_link) %>">较新的日志</a></li>
       <% } else { %>
       <li class="prev">较新的日志</li>
