@@ -176,7 +176,6 @@ body {
   }
 }
 
-
 .colophon {
   background: $gray_color;
   font-weight: 300;
@@ -198,7 +197,6 @@ body {
     }
     ul.nav-menu {
       li {
-        display: none;
         a {
           font-weight: normal;
           @extend %dark-link;
