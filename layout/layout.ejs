@@ -1,19 +1,5 @@
 <%- partial('_partial/head') %>
 <body>
-  <!--
-  <div id="container">
-    <div id="wrap">
-      
-      <div class="outer">
-        <section id="main"><%- body %></section>
-        <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
-          <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
-        <% } %>
-      </div>
-    </div>
-    <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
-  </div>
-  -->
   <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
   <div class="page-content">
     <div class="container">
@@ -22,6 +8,9 @@
       </div>
     </div>
   </div>
+  <% if(page) { %>
+    <%- partial('_partial/post/nav', {post: page, index: false}) %>
+  <% } %>
   <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
   <%- partial('_partial/after-footer') %>
 </body>

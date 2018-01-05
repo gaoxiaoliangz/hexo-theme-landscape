@@ -143,7 +143,6 @@ var mobileMenu = function (o) {
   o.is_initialized = false;
 
   o.init = function () {
-    console.log('here');
     if ($(window).width() <= 768 && !this.is_initialized) {
       $("body").append("<div class='nav-menu-float'><div class='title'>菜单</div></div><div class='backdrop'></div>").addClass("mobile-menu-enabled mobile-menu-closed");
       $(".branding .wrap").append("<span class='icon icon-animated icon-animated-menu state-1'></span>");
