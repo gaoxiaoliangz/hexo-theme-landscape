@@ -85,7 +85,7 @@ const next = findNearestNext(post)
   <div class="container">
     <ul>
       <li class="prev">
-        <div class="text">下一篇</div>
+        <div class="text"><%- __('next_post') %></div>
         <a href="<%- url_for(next.path) %>"><%= next.title %></a>
         <p class="excerpt">
           <%- generateExcerp(removeMarkdown(next._content)) %> 
