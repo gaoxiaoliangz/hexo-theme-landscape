@@ -1,26 +1,21 @@
 <% var notPage = post => post.layout !== 'page' %>
 <% if (type === 'index' || type === 'tag' || type === 'category'){ %>
-  <% if (type === 'tag') { %>
-    <div class="page-header">
+  <% if (type === 'tag' || type === 'category') {
+    const url = type === 'tag' ? url_for('tags/' + page.tag) : url_for('categories/' + page.category)
+    const name = type === 'tag' ? page.tag : page.category
+  %>
+    <div class="page-info">
       <div class="container">
-        <h1 class="page-title">
-          <span class="hash">#</span>
-          <a href="<%- url_for('tags/' + page.tag) %>"><%- page.tag %></a>
-        </h1>
-        <div class="page-description">
-          <%- _p('posts_count', page.posts.length) %>
-        </div>
-      </div>
-    </div>
-  <% } %>
-  <% if (type === 'category') { %>
-    <div class="page-header">
-      <div class="container">
-        <h1 class="page-title">
-          <a href="<%- url_for('categories/' + page.category) %>"><%- page.category %></a>
-        </h1>
-        <div class="page-description">
-          <%- _p('posts_count', page.total) %>
+        <div class="page-info-inner">
+          <h1 class="page-title">
+            <% if (type === 'tag') { %>
+            <span class="hash">#</span>
+            <% } %>
+            <a href="<%- url %>"><%- name %></a>
+          </h1>
+          <div class="page-description">
+            <%- _p('posts_count', page.posts.length) %>
+          </div>
         </div>
       </div>
     </div>

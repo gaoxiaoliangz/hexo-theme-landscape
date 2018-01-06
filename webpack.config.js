@@ -7,7 +7,8 @@ module.exports = generateConfig({
   },
   media: {
     loadImgWithUrlLoader: true,
-  }
+  },
+  production: true,
 }, {
   entry: {
     main: resolveApp('source/_modules/index.js'),
@@ -17,5 +18,5 @@ module.exports = generateConfig({
     filename: '[name].js',
     publicPath: '/blog/build/'
   },
-  devtool: 'sourcemap'
+  // devtool: 'sourcemap'
 })

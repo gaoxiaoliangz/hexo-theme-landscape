@@ -97,6 +97,40 @@ body {
   }
 }
 
+.page-info-inner {
+  max-width: $article_width;
+  margin: 0 auto;
+  padding-bottom: 0;
+  border: none;
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .hash {
+    display: inline-block;
+    width: 20px;
+    margin-left: -25px;
+    @include tablet {
+      margin-left: 0;
+    }
+  }
+
+  .author-bio {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 15px 0 5px;
+  }
+
+  .author-stats,
+  .author-location {
+    font-size: 16px;
+  }
+  .page-description {
+    font-size: 16px;
+  }
+}
+
 .page-content {
   .comments {
     margin: 50px 0;
@@ -281,42 +315,6 @@ article.post {
 }
 article.post:last-child {
   border-bottom: none;
-}
-
-
-// page header /////////////////////////////////////////////////////////////////////////
-.page-header {
-  max-width: 800px;
-  margin: 0 auto;
-  padding-bottom: 0;
-  border: none;
-
-  h1 {
-    font-size: 25px;
-  }
-
-  .hash {
-    display: inline-block;
-    width: 20px;
-    margin-left: -25px;
-    @include tablet {
-      margin-left: 0;
-    }
-  }
-
-  .author-bio {
-    font-size: 18px;
-    font-weight: normal;
-    margin: 15px 0 5px;
-  }
-
-  .author-stats,
-  .author-location {
-    font-size: 16px;
-  }
-  .page-description {
-    font-size: 16px;
-  }
 }
 
 
