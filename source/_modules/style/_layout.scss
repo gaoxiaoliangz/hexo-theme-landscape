@@ -277,6 +277,7 @@ article.post:last-child {
   border-bottom: none;
 }
 
+
 // home /////////////////////////////////////////////////////////////////////////
 .home-template,
 .paged {
@@ -286,56 +287,35 @@ article.post:last-child {
 }
 
 
-// tag /////////////////////////////////////////////////////////////////////////
-.tag-template{
-  .page-header {
-    max-width: 800px;
-    margin: 0 auto;
-    padding-bottom: 0;
-    border: none;
+// page header /////////////////////////////////////////////////////////////////////////
+.page-header {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 0;
+  border: none;
 
-    h1 {
-      font-size: 25px;
-    }
-
-    .hash {
-      display: inline-block;
-      width: 20px;
-    }
-
-    .page-title {
-      margin-left: -25px;
-    }
+  h1 {
+    font-size: 25px;
   }
 
-  .page-description {
+  .hash {
+    display: inline-block;
+    width: 20px;
+    margin-left: -25px;
+  }
+
+  .author-bio {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 15px 0 5px;
+  }
+
+  .author-stats,
+  .author-location {
     font-size: 16px;
   }
-}
-
-
-// author /////////////////////////////////////////////////////////////////////////
-.author-template {
-  .page-header {
-    max-width: 800px;
-    margin: 0 auto;
-    padding-bottom: 0;
-    border: none;
-
-    h1 {
-      font-size: 25px;
-    }
-
-    .author-bio {
-      font-size: 18px;
-      font-weight: normal;
-      margin: 15px 0 5px;
-    }
-
-    .author-stats,
-    .author-location {
-      font-size: 16px;
-    }
+  .page-description {
+    font-size: 16px;
   }
 }
 

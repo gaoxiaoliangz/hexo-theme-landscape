@@ -412,35 +412,25 @@ article.post:last-child {
 .paged article.post {
   min-height: auto; }
 
-.tag-template .page-header {
+.page-header {
   max-width: 800px;
   margin: 0 auto;
   padding-bottom: 0;
   border: none; }
-  .tag-template .page-header h1 {
+  .page-header h1 {
     font-size: 25px; }
-  .tag-template .page-header .hash {
+  .page-header .hash {
     display: inline-block;
-    width: 20px; }
-  .tag-template .page-header .page-title {
+    width: 20px;
     margin-left: -25px; }
-
-.tag-template .page-description {
-  font-size: 16px; }
-
-.author-template .page-header {
-  max-width: 800px;
-  margin: 0 auto;
-  padding-bottom: 0;
-  border: none; }
-  .author-template .page-header h1 {
-    font-size: 25px; }
-  .author-template .page-header .author-bio {
+  .page-header .author-bio {
     font-size: 18px;
     font-weight: normal;
     margin: 15px 0 5px; }
-  .author-template .page-header .author-stats,
-  .author-template .page-header .author-location {
+  .page-header .author-stats,
+  .page-header .author-location {
+    font-size: 16px; }
+  .page-header .page-description {
     font-size: 16px; }
 
 .page-blog-archive .page-content {

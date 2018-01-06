@@ -3,7 +3,7 @@
     <a class="post-link <%= class_name %>" href="<%- url_for(post.link) %>" target="_blank" itemprop="url"><%= post.title %></a>
   </h1>
 <% } else if (post.title){ %>
-  <% if (index){ %>
+  <% if (typeof index !== 'undefined') { %>
     <h1 class="post-title <%= class_name %>" itemprop="name">
       <a class="post-link <%= class_name %>" href="<%- url_for(post.path) %>"><%= post.title %></a>
     </h1>
