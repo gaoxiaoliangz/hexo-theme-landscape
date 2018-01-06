@@ -29,3 +29,5 @@ about: 关于
 img_txt_placeholder: "[图]"
 next_post: 下一篇
 prev_post: 上一篇
+date_format: YYYY年MM月DD日
+date_format_no_year: MM月DD日

@@ -4,7 +4,7 @@ const isPage = typeof type !== 'undefined' && type === 'page'
 <article id="<%= post.layout %>-<%= post.slug %>" class="post post-type-<%= post.layout %> <%- index ? 'post--index' : '' %>" itemscope itemprop="blogPost">
   <header class="post-header">
     <% if (!isPage) { %>
-      <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+      <%- partial('post/date', {class_name: 'article-date', date_format: __('date_format')}) %>
     <% } %>
     <% if (post.link || post.title){ %>
       <%- partial('post/title', {class_name: 'article-title'}) %>
