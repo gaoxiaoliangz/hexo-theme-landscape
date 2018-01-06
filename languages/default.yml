@@ -21,4 +21,8 @@ read_more: Read More
 posts_count:
   zero: No post
   one: One post
-  other: %d posts
+  other: "%d posts"
+archive: Archive
+home: Home
+menu: Menu
+about: About

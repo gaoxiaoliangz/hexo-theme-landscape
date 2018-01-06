@@ -1,3 +1,4 @@
+<% var notPage = post => post.layout !== 'page' %>
 <% if (type === 'index' || type === 'tag' || type === 'category'){ %>
   <% if (type === 'tag') { %>
     <div class="page-header">
@@ -6,7 +7,7 @@
         <a href="<%- url_for('tags/' + page.tag) %>"><%- page.tag %></a>
       </h1>
       <div class="page-description">
-        <%- _p('posts_count', page.total) %>
+        <%- _p('posts_count', page.posts.length) %>
       </div>
     </div>
   <% } %>
@@ -22,7 +23,7 @@
   <% } %>
   <div class="page-content">
     <div class="container">
-      <% page.posts.each(function(post){ %>
+      <% page.posts.data.filter(notPage).forEach(function(post){ %>
         <%- partial('article', {post: post, index: true}) %>
       <% }) %>
     </div>
@@ -31,7 +32,7 @@
   <div class="page-content page-content--archive">
     <div class="page-content-inner">
     <% var last; %>
-    <% page.posts.each(function(post, i){ %>
+    <% page.posts.data.filter(notPage).forEach(function(post, i){ %>
       <% var year = post.date.year(); %>
       <% if (last != year){ %>
         <% if (last != null){ %>

@@ -1,6 +1,9 @@
+<% const isPage = typeof type !== 'undefined' && type === 'page' %>
 <article id="<%= post.layout %>-<%= post.slug %>" class="post post-type-<%= post.layout %>" itemscope itemprop="blogPost">
   <header class="post-header">
-    <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+    <% if (!isPage) { %>
+      <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+    <% } %>
     <% if (post.link || post.title){ %>
       <%- partial('post/title', {class_name: 'article-title'}) %>
     <% } %>
@@ -19,7 +22,7 @@
       <%- post.content %>
     <% } %>
   </div>
-  <% if (!index) { %>
+  <% if (!index && !isPage) { %>
   <footer class="post-meta clearfix">
     <a href="#" data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="right article-share-link"><%= __('share') %></a>
     <%- // partial('post/category') %>

@@ -1,5 +1,11 @@
+<% const custom_menus = site.posts.data.filter(post => typeof post.menu_order !== 'undefined').sort((a, b) => a.menu_order - b.menu_order) %>
 <ul class="nav-menu">
   <% for (var i in theme.menu){ %>
-    <li><a href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
+    <li><a href="<%- url_for(theme.menu[i]) %>"><%= __(i) || i %></a></li>
+  <% } %>
+  <% if (custom_menus.length !== 0) { %>
+    <% custom_menus.forEach(function(post) { %>
+      <li><a href="<%- url_for(post.path) %>"><%- post.title %></a></li>
+    <% }) %>
   <% } %>
 </ul>

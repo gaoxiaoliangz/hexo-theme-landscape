@@ -1,11 +1,10 @@
 # Header
 menu:
-  Home: /
-  Archives: /archives
+  home: /
+  archive: /archives
 rss: /atom.xml
 
 # Content
-excerpt_link: Read More
 fancybox: true
 
 # Sidebar
