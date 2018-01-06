@@ -320,23 +320,24 @@ article.post:last-child {
 }
 
 
-// archive /////////////////////////////////////////////////////////////////////////
-.page-blog-archive {
-  .page-content {
-    min-height: 600px;
-  }
-  .archive {
+// archives /////////////////////////////////////////////////////////////////////////
+.page-content--archive {
+  min-height: 600px;
+  .page-content-inner {
     text-align: center;
     margin: $spacing_1 0 $spacing_1*1.5;
-    .year {
-      h2 {
+    .archives-wrap {
+      .archive-year-wrap {
         font-size: 160px;
         font-weight: 100;
         margin-top: $spacing_1;
         margin-bottom: $spacing_1*.5;
+        a {
+          color: $text_1;
+        }
       }
-      ul.posts {
-        li {
+      .archives {
+        .archive-post {
           .post-title {
             font-size: $title_size;
             line-height: 1.4;
@@ -346,7 +347,7 @@ article.post:last-child {
               border-bottom: 1px solid $text_1;
             }
           }
-          .post-date {
+          .archive-post-date {
             font-size: 18px;
             color: $text_3;
           }
@@ -354,16 +355,16 @@ article.post:last-child {
       }
     }
     @include tablet {
-      .year {
-        h2 {
+      .archives-wrap {
+        .archive-year-wrap {
           font-size: 100px;
         }
-        ul.posts {
-          li {
+        .archives {
+          .archive-post {
             .post-title {
               font-size: $title_size*.9;
             }
-            .post-date {
+            .archive-post-date {
               font-size: 16px;
             }
           }

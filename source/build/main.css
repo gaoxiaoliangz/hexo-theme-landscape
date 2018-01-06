@@ -433,34 +433,35 @@ article.post:last-child {
   .page-header .page-description {
     font-size: 16px; }
 
-.page-blog-archive .page-content {
+.page-content--archive {
   min-height: 600px; }
-
-.page-blog-archive .archive {
-  text-align: center;
-  margin: 40px 0 60px; }
-  .page-blog-archive .archive .year h2 {
-    font-size: 160px;
-    font-weight: 100;
-    margin-top: 40px;
-    margin-bottom: 20px; }
-  .page-blog-archive .archive .year ul.posts li .post-title {
-    font-size: 30px;
-    line-height: 1.4;
-    margin: 5px 0 20px 0; }
-    .page-blog-archive .archive .year ul.posts li .post-title a {
-      color: #333;
-      border-bottom: 1px solid #333; }
-  .page-blog-archive .archive .year ul.posts li .post-date {
-    font-size: 18px;
-    color: #999; }
-  @media (max-width: 768px) {
-    .page-blog-archive .archive .year h2 {
-      font-size: 100px; }
-    .page-blog-archive .archive .year ul.posts li .post-title {
-      font-size: 27px; }
-    .page-blog-archive .archive .year ul.posts li .post-date {
-      font-size: 16px; } }
+  .page-content--archive .page-content-inner {
+    text-align: center;
+    margin: 40px 0 60px; }
+    .page-content--archive .page-content-inner .archives-wrap .archive-year-wrap {
+      font-size: 160px;
+      font-weight: 100;
+      margin-top: 40px;
+      margin-bottom: 20px; }
+      .page-content--archive .page-content-inner .archives-wrap .archive-year-wrap a {
+        color: #333; }
+    .page-content--archive .page-content-inner .archives-wrap .archives .archive-post .post-title {
+      font-size: 30px;
+      line-height: 1.4;
+      margin: 5px 0 20px 0; }
+      .page-content--archive .page-content-inner .archives-wrap .archives .archive-post .post-title a {
+        color: #333;
+        border-bottom: 1px solid #333; }
+    .page-content--archive .page-content-inner .archives-wrap .archives .archive-post .archive-post-date {
+      font-size: 18px;
+      color: #999; }
+    @media (max-width: 768px) {
+      .page-content--archive .page-content-inner .archives-wrap .archive-year-wrap {
+        font-size: 100px; }
+      .page-content--archive .page-content-inner .archives-wrap .archives .archive-post .post-title {
+        font-size: 27px; }
+      .page-content--archive .page-content-inner .archives-wrap .archives .archive-post .archive-post-date {
+        font-size: 16px; } }
 
 .outliner-nav-menu .container {
   max-width: 800px; }
