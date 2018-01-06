@@ -129,7 +129,7 @@ body {
   margin: 0 auto;
   position: relative;
   background: $gray_color;
-  padding: $spacing_1*2 10px;
+  padding: $spacing_1*1.5 10px;
   ul {
     padding: 0;
     list-style: none;
@@ -271,8 +271,10 @@ article.post {
     }
   }
   .post-meta {
-    margin: 20px 0;
+    margin: 40px 0;
     font-size: 18px;
+    border-top: 1px solid $gray_color;
+    padding-top: 20px;
     color: $text_3;
     .article-share-link {
       margin: 10px 0;

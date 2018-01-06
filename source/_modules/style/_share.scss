@@ -46,10 +46,14 @@
 .article-share-pinterest,
 .article-share-google {
   width: 35px;
-  height: 36px;
+  height: 40px;
   display: block;
   float: left;
   position: relative;
+  filter: brightness(0.65);
+  &:hover {
+    filter: brightness(0.25);
+  }
   &:before {
     font-size: 16px;
     width: 20px;
@@ -68,31 +72,14 @@
   &:before {
     background: url(../img/icon-twitter.png) no-repeat center;
   }
-  &:hover {
-    background: #00aced;
-  }
 }
 .article-share-facebook {
   &:before {
     background: url(../img/icon-facebook.png) no-repeat center;
-  }
-  &:hover {
-    background: #3b5998;
   }
 }
 .article-share-pinterest {
   &:before {
     background: url(../img/icon-pinterest.png) no-repeat center;
   }
-  &:hover {
-    background: #cb2027;
-  }
 }
-// .article-share-google {
-//   &:before {
-//     background: url(../img/icon-google.png) no-repeat center;
-//   }
-//   &:hover {
-//     background: #dd4b39;
-//   }
-// }

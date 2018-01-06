@@ -1,5 +1,4 @@
 import './style/style.scss'
-import './share-post'
 import utils from './utils'
 import mobileMenu from './mobile-menu'
 import contentPlus from './content-plus'
