@@ -204,104 +204,104 @@ if (kit.isIE()) {
   $("body").addClass("_ie");
 }
 
-var contentPlus = function (obj) {
-  obj.threshold = 768;
+var contentPlus = {};
 
-  obj.config = function (data) {
-    for (var p in data) {
-      if (p == "threshold") {
-        obj.threshold = parseInt(data.threshold);
-      }
+contentPlus.threshold = 768;
+
+contentPlus.config = function (data) {
+  for (var p in data) {
+    if (p == "threshold") {
+      contentPlus.threshold = parseInt(data.threshold);
     }
-  };
+  }
+};
 
-  obj.alignVerCenter = function (ele) {
-    var ele_h = $(ele).outerHeight();
-    var parent_h = $(ele).parent().height();
-    $(ele).css({ "position": "absolute", "top": "50%", "margin-top": -ele_h / 2 });
-    $(ele).parent().css({ "position": "relative" });
-  };
+contentPlus.alignVerCenter = function (ele) {
+  var ele_h = $(ele).outerHeight();
+  var parent_h = $(ele).parent().height();
+  $(ele).css({ "position": "absolute", "top": "50%", "margin-top": -ele_h / 2 });
+  $(ele).parent().css({ "position": "relative" });
+};
 
-  obj._setImgWrapFullWidth = function (tar) {
-    var w1 = $(document).width();
-    if (tar.parent().prop("tagName") == "P") {
-      var type = tar.data("img-type");
-      tar.parent().addClass("img-wrap-type-" + type);
-      switch (type) {
+contentPlus._setImgWrapFullWidth = function (tar) {
+  var w1 = $(document).width();
+  if (tar.parent().prop("tagName") == "P") {
+    var type = tar.data("img-type");
+    tar.parent().addClass("img-wrap-type-" + type);
+    switch (type) {
 
-        case 1:
-          // img full width
-          var w2 = tar.parent().parent().width();
-          var offset = (w1 - w2) / 2;
-          var p = tar.parent();
-          p.width(w1);
-          tar.width(w1);
-          p.css("margin-left", -offset);
-          break;
+      case 1:
+        // img full width
+        var w2 = tar.parent().parent().width();
+        var offset = (w1 - w2) / 2;
+        var p = tar.parent();
+        p.width(w1);
+        tar.width(w1);
+        p.css("margin-left", -offset);
+        break;
 
-        case 2:
-          // img wrap full width
-          var w2 = tar.parent().parent().width();
-          var offset = (w1 - w2) / 2;
-          var p = tar.parent();
-          p.width(w1);
-          p.css("margin-left", -offset);
-          break;
+      case 2:
+        // img wrap full width
+        var w2 = tar.parent().parent().width();
+        var offset = (w1 - w2) / 2;
+        var p = tar.parent();
+        p.width(w1);
+        p.css("margin-left", -offset);
+        break;
 
-        default:
-          break;
-      }
+      default:
+        break;
     }
-  };
+  }
+};
 
-  obj._setLinkOpenBlank = function (tar) {
-    if (!tar.attr('target') && !tar.find("img").length && !tar.hasClass("no_blank")) {
+contentPlus._setLinkOpenBlank = function (tar) {
+  if (!tar.attr('target') && !tar.find("img").length && !tar.hasClass("no_blank")) {
+    if (!tar.hasClass('toc-link')) {
       tar.attr('target', '_blank');
-      tar.addClass("link");
     }
-  };
+    tar.addClass("link");
+  }
+};
 
-  obj._handlePara = function (tar) {
-    if (tar.find("img").length) {
-      tar.addClass("img-wrap");
+contentPlus._handlePara = function (tar) {
+  if (tar.find("img").length) {
+    tar.addClass("img-wrap");
+  }
+};
+
+contentPlus.layoutContent = function (tar) {
+  $(tar).find("p,a,img").each(function () {
+    var type = $(this).prop("tagName");
+    switch (type) {
+      case "P":
+        contentPlus._handlePara($(this));
+        break;
+
+      case "A":
+        contentPlus._setLinkOpenBlank($(this));
+        break;
+
+      case "IMG":
+        contentPlus._setImgWrapFullWidth($(this));
+        contentPlus._expandEle($(this), 40);
+        break;
+
+      default:
+        break;
     }
-  };
+  });
+};
 
-  obj.layoutContent = function (tar) {
-    $(tar).find("p,a,img").each(function () {
-      var type = $(this).prop("tagName");
-      switch (type) {
-        case "P":
-          obj._handlePara($(this));
-          break;
-
-        case "A":
-          obj._setLinkOpenBlank($(this));
-          break;
-
-        case "IMG":
-          obj._setImgWrapFullWidth($(this));
-          obj._expandEle($(this), 40);
-          break;
-
-        default:
-          break;
-      }
-    });
-  };
-
-  obj._expandEle = function (tar, padding) {
-    var w1 = tar.parent().width();
-    if ($(window).width() < obj.threshold) {
-      padding = 15;
-    }
-    var w2 = w1 + padding * 2;
-    tar.width(w2);
-    tar.css({ "margin-left": -padding, "max-width": w2 });
-  };
-
-  return obj;
-}(contentPlus || {});
+contentPlus._expandEle = function (tar, padding) {
+  var w1 = tar.parent().width();
+  if ($(window).width() < contentPlus.threshold) {
+    padding = 15;
+  }
+  var w2 = w1 + padding * 2;
+  tar.width(w2);
+  tar.css({ "margin-left": -padding, "max-width": w2 });
+};
 
 module.exports = contentPlus;
 
@@ -311,7 +311,7 @@ module.exports = contentPlus;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"no-csschunit":"no-csschunit","container-fluid":"container-fluid","left":"left","right":"right","sep":"sep","colophon":"colophon","links":"links","nav-menu":"nav-menu","post":"post","more-link":"more-link","content-plus":"content-plus","caption":"caption","with-code-caption":"with-code-caption","link":"link","container":"container","branding":"branding","wrap":"wrap","logo":"logo","icon":"icon","no-svg":"no-svg","active":"active","page-content":"page-content","comments":"comments","nav-bottom":"nav-bottom","text":"text","excerpt":"excerpt","next":"next","nav-pagination":"nav-pagination","page-number":"page-number","info":"info","nav-email":"nav-email","post-header":"post-header","post-date":"post-date","post-title":"post-title","post-link":"post-link","post-meta":"post-meta","article-share-link":"article-share-link","article-category":"article-category","article-category-link":"article-category-link","post-tag-list":"post-tag-list","post-tag-list-item":"post-tag-list-item","home-template":"home-template","paged":"paged","page-header":"page-header","hash":"hash","author-bio":"author-bio","author-stats":"author-stats","author-location":"author-location","page-description":"page-description","page-content--archive":"page-content--archive","page-content-inner":"page-content-inner","archives-wrap":"archives-wrap","archive-year-wrap":"archive-year-wrap","archives":"archives","archive-post":"archive-post","archive-post-date":"archive-post-date","outliner-nav-menu":"outliner-nav-menu","outliner-content-table":"outliner-content-table","title":"title","mobile-menu-enabled":"mobile-menu-enabled","mobile-menu-open":"mobile-menu-open","nav-menu-float":"nav-menu-float","backdrop":"backdrop","mobile-menu-closed":"mobile-menu-closed","article-share-box":"article-share-box","on":"on","article-share-input":"article-share-input","article-share-links":"article-share-links","article-share-twitter":"article-share-twitter","article-share-facebook":"article-share-facebook","article-share-pinterest":"article-share-pinterest","article-share-google":"article-share-google","hljs":"hljs","hljs-comment":"hljs-comment","hljs-meta":"hljs-meta","hljs-string":"hljs-string","hljs-variable":"hljs-variable","hljs-template-variable":"hljs-template-variable","hljs-strong":"hljs-strong","hljs-emphasis":"hljs-emphasis","hljs-quote":"hljs-quote","hljs-keyword":"hljs-keyword","hljs-selector-tag":"hljs-selector-tag","hljs-type":"hljs-type","hljs-literal":"hljs-literal","hljs-symbol":"hljs-symbol","hljs-bullet":"hljs-bullet","hljs-attribute":"hljs-attribute","hljs-section":"hljs-section","hljs-name":"hljs-name","hljs-tag":"hljs-tag","hljs-title":"hljs-title","hljs-attr":"hljs-attr","hljs-selector-id":"hljs-selector-id","hljs-selector-class":"hljs-selector-class","hljs-selector-attr":"hljs-selector-attr","hljs-selector-pseudo":"hljs-selector-pseudo","hljs-addition":"hljs-addition","hljs-deletion":"hljs-deletion","hljs-link":"hljs-link"};
+module.exports = {"no-csschunit":"no-csschunit","container-fluid":"container-fluid","left":"left","right":"right","sep":"sep","colophon":"colophon","links":"links","nav-menu":"nav-menu","post":"post","more-link":"more-link","content-plus":"content-plus","caption":"caption","with-code-caption":"with-code-caption","link":"link","container":"container","branding":"branding","wrap":"wrap","logo":"logo","icon":"icon","no-svg":"no-svg","active":"active","page-content":"page-content","comments":"comments","nav-bottom":"nav-bottom","text":"text","excerpt":"excerpt","next":"next","nav-pagination":"nav-pagination","page-number":"page-number","info":"info","nav-email":"nav-email","post-header":"post-header","post-date":"post-date","post-title":"post-title","post-link":"post-link","post-meta":"post-meta","article-share-link":"article-share-link","article-category":"article-category","article-category-link":"article-category-link","post-tag-list":"post-tag-list","post-tag-list-item":"post-tag-list-item","home-template":"home-template","paged":"paged","page-header":"page-header","hash":"hash","author-bio":"author-bio","author-stats":"author-stats","author-location":"author-location","page-description":"page-description","page-content--archive":"page-content--archive","page-content-inner":"page-content-inner","archives-wrap":"archives-wrap","archive-year-wrap":"archive-year-wrap","archives":"archives","archive-post":"archive-post","archive-post-date":"archive-post-date","toc":"toc","mobile-menu-enabled":"mobile-menu-enabled","mobile-menu-open":"mobile-menu-open","nav-menu-float":"nav-menu-float","title":"title","backdrop":"backdrop","mobile-menu-closed":"mobile-menu-closed","article-share-box":"article-share-box","on":"on","article-share-input":"article-share-input","article-share-links":"article-share-links","article-share-twitter":"article-share-twitter","article-share-facebook":"article-share-facebook","article-share-pinterest":"article-share-pinterest","article-share-google":"article-share-google","icon-animated":"icon-animated","icon-animated-menu":"icon-animated-menu","state-1":"state-1","_ie":"_ie","state-2":"state-2","hljs":"hljs","hljs-comment":"hljs-comment","hljs-meta":"hljs-meta","hljs-string":"hljs-string","hljs-variable":"hljs-variable","hljs-template-variable":"hljs-template-variable","hljs-strong":"hljs-strong","hljs-emphasis":"hljs-emphasis","hljs-quote":"hljs-quote","hljs-keyword":"hljs-keyword","hljs-selector-tag":"hljs-selector-tag","hljs-type":"hljs-type","hljs-literal":"hljs-literal","hljs-symbol":"hljs-symbol","hljs-bullet":"hljs-bullet","hljs-attribute":"hljs-attribute","hljs-section":"hljs-section","hljs-name":"hljs-name","hljs-tag":"hljs-tag","hljs-title":"hljs-title","hljs-attr":"hljs-attr","hljs-selector-id":"hljs-selector-id","hljs-selector-class":"hljs-selector-class","hljs-selector-attr":"hljs-selector-attr","hljs-selector-pseudo":"hljs-selector-pseudo","hljs-addition":"hljs-addition","hljs-deletion":"hljs-deletion","hljs-link":"hljs-link"};
 
 /***/ }),
 /* 6 */

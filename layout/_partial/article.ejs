@@ -1,4 +1,6 @@
-<% const isPage = typeof type !== 'undefined' && type === 'page' %>
+<%
+const isPage = typeof type !== 'undefined' && type === 'page'
+%>
 <article id="<%= post.layout %>-<%= post.slug %>" class="post post-type-<%= post.layout %>" itemscope itemprop="blogPost">
   <header class="post-header">
     <% if (!isPage) { %>
@@ -19,6 +21,9 @@
         </a>
       <% } %>
     <% } else { %>
+      <% if (page.toc) { %>
+        <%- toc(page.content) %>
+      <% } %>
       <%- post.content %>
     <% } %>
   </div>
