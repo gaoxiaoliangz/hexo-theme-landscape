@@ -2,7 +2,13 @@
   <div class="container-fluid">
     <div class="wrap">
       <h1 class="logo">
-        <a href="<%- url_for() %>"><img class="svg" src="<%- url_for('static/logo.svg')%>" alt="<%= config.title %>"></a>
+        <a href="<%- url_for() %>">
+          <% if (theme.logo){ %>
+            <img src="<%- url_for(theme.logo)%>" alt="<%= config.title %>">
+          <% } else { %>
+            <%= config.title %>
+          <% } %>
+        </a>
       </h1>
       <% if (theme.subtitle){ %>
         <h2 id="subtitle-wrap">

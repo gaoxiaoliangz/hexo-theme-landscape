@@ -225,7 +225,9 @@ body {
   float: left;
   margin: 0; }
   .branding .logo a {
-    display: block; }
+    display: block;
+    color: #333;
+    font-size: 30px; }
     .branding .logo a img {
       display: block;
       width: 80px;
