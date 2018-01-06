@@ -16,7 +16,7 @@ $('body')
 
       if (box.hasClass('on')) {
         box.removeClass('on');
-        return;
+        return false;
       }
     } else {
       var html = [
@@ -44,6 +44,7 @@ $('body')
         left: offset.left
       })
       .addClass('on');
+    return false
   })
   .on('click', '.article-share-box', function (e) {
     e.stopPropagation();

@@ -12,20 +12,21 @@
       <% if (theme.excerpt_link){ %>
         <a class="more-link no_blank" href="<%- url_for(post.path) %>#more">
           <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-          <%= theme.excerpt_link %>
+          <%- __('read_more') %>
         </a>
       <% } %>
     <% } else { %>
       <%- post.content %>
     <% } %>
   </div>
-
-  <footer class="post-meta">
-    <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('share') %></a>
-    <%- partial('post/category') %>
+  <% if (!index) { %>
+  <footer class="post-meta clearfix">
+    <a href="#" data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="right article-share-link"><%= __('share') %></a>
+    <%- // partial('post/category') %>
     <%- partial('post/tag') %>
     <% if (post.comments && config.disqus_shortname){ %>
       <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
     <% } %>
   </footer>
+  <% } %>
 </article>
