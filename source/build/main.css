@@ -217,7 +217,7 @@ body {
     .branding .wrap {
       padding: 25px 0; }
       .branding .wrap .logo {
-        margin-top: 6px; }
+        margin-top: 10px; }
       .branding .wrap .icon {
         float: right; } }
 
@@ -360,6 +360,8 @@ article.post {
   max-width: 800px;
   margin: 80px auto 120px;
   min-height: 300px; }
+  article.post.post--index {
+    min-height: auto; }
   @media (max-width: 768px) {
     article.post {
       margin: 30px auto;
@@ -408,10 +410,6 @@ article.post {
 article.post:last-child {
   border-bottom: none; }
 
-.home-template article.post,
-.paged article.post {
-  min-height: auto; }
-
 .page-header {
   max-width: 800px;
   margin: 0 auto;
@@ -423,6 +421,9 @@ article.post:last-child {
     display: inline-block;
     width: 20px;
     margin-left: -25px; }
+    @media (max-width: 768px) {
+      .page-header .hash {
+        margin-left: 0; } }
   .page-header .author-bio {
     font-size: 18px;
     font-weight: normal;

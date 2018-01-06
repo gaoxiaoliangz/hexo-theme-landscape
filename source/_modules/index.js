@@ -1,13 +1,16 @@
-const kit = require('./kit')
-const mobilemenu = require('./mobile-menu')
-const contentplus = require('./content-plus')
-
 import './style/style.scss'
 import './share-post'
+import utils from './utils'
+import mobileMenu from './mobile-menu'
+import contentPlus from './content-plus'
+
+if (utils.isIE()) {
+  $("body").addClass("_ie");
+}
 
 hljs.initHighlightingOnLoad()
 
-kit.excAndExcOnResizing(function () {
-  contentplus.layoutContent(".content-plus")
-  mobilemenu.init()
+utils.excAndExcOnResizing(function () {
+  contentPlus.layoutContent(".content-plus")
+  mobileMenu.init()
 })

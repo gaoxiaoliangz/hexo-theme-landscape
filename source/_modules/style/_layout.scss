@@ -22,16 +22,16 @@ body {
 .branding {
   .wrap {
     padding: $spacing_1 0;
+    overflow: hidden;
     @include tablet {
       padding: 25px 0;
       .logo {
-        margin-top: 6px;
+        margin-top: 10px;
       }
       .icon {
         float: right;
       }
     }
-    overflow: hidden;
   }
   .logo {
     float: left;
@@ -214,6 +214,9 @@ article.post {
   max-width: $article_width;
   margin: $spacing_1*2 auto $spacing_1*3;
   min-height: 300px;
+  &.post--index {
+    min-height: auto;
+  }
   @include tablet {
     margin: 30px auto;
     width: 100%;
@@ -278,15 +281,6 @@ article.post:last-child {
 }
 
 
-// home /////////////////////////////////////////////////////////////////////////
-.home-template,
-.paged {
-  article.post {
-    min-height: auto;
-  }
-}
-
-
 // page header /////////////////////////////////////////////////////////////////////////
 .page-header {
   max-width: 800px;
@@ -302,6 +296,9 @@ article.post:last-child {
     display: inline-block;
     width: 20px;
     margin-left: -25px;
+    @include tablet {
+      margin-left: 0;
+    }
   }
 
   .author-bio {

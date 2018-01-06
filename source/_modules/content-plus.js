@@ -1,10 +1,4 @@
-var kit = require("./kit");
-
-if (kit.isIE()) {
-  $("body").addClass("_ie");
-}
-
-var contentPlus = {}
+const contentPlus = {}
 
 contentPlus.threshold = 768;
 
@@ -103,4 +97,4 @@ contentPlus._expandEle = function (tar, padding) {
   tar.css({ "margin-left": -padding, "max-width": w2 });
 }
 
-module.exports = contentPlus;
+export default contentPlus
