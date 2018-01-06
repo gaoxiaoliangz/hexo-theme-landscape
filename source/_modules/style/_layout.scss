@@ -238,7 +238,7 @@ body {
 // post /////////////////////////////////////////////////////////////////////////
 article.post {
   max-width: $article_width;
-  margin: $spacing_1*2 auto $spacing_1*3;
+  margin: $spacing_1 auto $spacing_1*2;
   min-height: 300px;
   &.post--index {
     min-height: auto;
@@ -288,10 +288,17 @@ article.post {
       margin: 10px 0;
       .post-tag-list-item {
         display: inline-block;
-        margin-right: 10px;
-      }  
-      a:before {
-        content: "#";
+        margin-right: 7px;
+      }
+      .post-tag-list-link {
+        background: $gray_color;
+        padding: 5px 10px;
+        border-radius: 3px;
+        color: $text_1;
+        font-size: 16px;
+        &:hover {
+          background: darken($gray_color, 5%);
+        }
       }
     }
   }
