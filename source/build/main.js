@@ -116,11 +116,13 @@ module.exports = Kit;
 "use strict";
 
 
+__webpack_require__(5);
+
+__webpack_require__(6);
+
 var kit = __webpack_require__(0);
 var mobilemenu = __webpack_require__(2);
 var contentplus = __webpack_require__(3);
-__webpack_require__(4);
-__webpack_require__(5);
 
 hljs.initHighlightingOnLoad();
 
@@ -304,7 +306,15 @@ var contentPlus = function (obj) {
 module.exports = contentPlus;
 
 /***/ }),
-/* 4 */
+/* 4 */,
+/* 5 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+module.exports = {"no-csschunit":"no-csschunit","container-fluid":"container-fluid","left":"left","right":"right","sep":"sep","colophon":"colophon","links":"links","nav-menu":"nav-menu","post":"post","more-link":"more-link","content-plus":"content-plus","caption":"caption","with-code-caption":"with-code-caption","link":"link","container":"container","branding":"branding","wrap":"wrap","logo":"logo","icon":"icon","no-svg":"no-svg","active":"active","page-content":"page-content","comments":"comments","nav-bottom":"nav-bottom","text":"text","excerpt":"excerpt","next":"next","nav-pagination":"nav-pagination","page-number":"page-number","info":"info","nav-email":"nav-email","post-header":"post-header","post-date":"post-date","post-title":"post-title","post-link":"post-link","post-meta":"post-meta","article-share-link":"article-share-link","article-category":"article-category","article-category-link":"article-category-link","post-tag-list":"post-tag-list","post-tag-list-item":"post-tag-list-item","home-template":"home-template","paged":"paged","page-header":"page-header","hash":"hash","author-bio":"author-bio","author-stats":"author-stats","author-location":"author-location","page-description":"page-description","page-content--archive":"page-content--archive","page-content-inner":"page-content-inner","archives-wrap":"archives-wrap","archive-year-wrap":"archive-year-wrap","archives":"archives","archive-post":"archive-post","archive-post-date":"archive-post-date","outliner-nav-menu":"outliner-nav-menu","outliner-content-table":"outliner-content-table","title":"title","mobile-menu-enabled":"mobile-menu-enabled","mobile-menu-open":"mobile-menu-open","nav-menu-float":"nav-menu-float","backdrop":"backdrop","mobile-menu-closed":"mobile-menu-closed","article-share-box":"article-share-box","on":"on","article-share-input":"article-share-input","article-share-links":"article-share-links","article-share-twitter":"article-share-twitter","article-share-facebook":"article-share-facebook","article-share-pinterest":"article-share-pinterest","article-share-google":"article-share-google","hljs":"hljs","hljs-comment":"hljs-comment","hljs-meta":"hljs-meta","hljs-string":"hljs-string","hljs-variable":"hljs-variable","hljs-template-variable":"hljs-template-variable","hljs-strong":"hljs-strong","hljs-emphasis":"hljs-emphasis","hljs-quote":"hljs-quote","hljs-keyword":"hljs-keyword","hljs-selector-tag":"hljs-selector-tag","hljs-type":"hljs-type","hljs-literal":"hljs-literal","hljs-symbol":"hljs-symbol","hljs-bullet":"hljs-bullet","hljs-attribute":"hljs-attribute","hljs-section":"hljs-section","hljs-name":"hljs-name","hljs-tag":"hljs-tag","hljs-title":"hljs-title","hljs-attr":"hljs-attr","hljs-selector-id":"hljs-selector-id","hljs-selector-class":"hljs-selector-class","hljs-selector-attr":"hljs-selector-attr","hljs-selector-pseudo":"hljs-selector-pseudo","hljs-addition":"hljs-addition","hljs-deletion":"hljs-deletion","hljs-link":"hljs-link"};
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -355,34 +365,6 @@ $('body').on('click', function () {
 
   window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
 });
-
-// Caption
-$('.article-entry').each(function (i) {
-  $(this).find('img').each(function () {
-    if ($(this).parent().hasClass('fancybox')) return;
-
-    var alt = this.alt;
-
-    if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-
-    $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-  });
-
-  $(this).find('.fancybox').each(function () {
-    $(this).attr('rel', 'article' + i);
-  });
-});
-
-if ($.fancybox) {
-  $('.fancybox').fancybox();
-}
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-module.exports = {"no-csschunit":"no-csschunit","container-fluid":"container-fluid","left":"left","right":"right","sep":"sep","colophon":"colophon","links":"links","nav-menu":"nav-menu","post":"post","more-link":"more-link","content-plus":"content-plus","caption":"caption","with-code-caption":"with-code-caption","link":"link","container":"container","branding":"branding","wrap":"wrap","logo":"logo","icon":"icon","no-svg":"no-svg","active":"active","page-content":"page-content","comments":"comments","nav-bottom":"nav-bottom","text":"text","excerpt":"excerpt","next":"next","nav-pagination":"nav-pagination","page-number":"page-number","info":"info","nav-email":"nav-email","post-header":"post-header","post-date":"post-date","post-title":"post-title","post-link":"post-link","post-meta":"post-meta","article-share-link":"article-share-link","article-category":"article-category","article-category-link":"article-category-link","post-tag-list":"post-tag-list","post-tag-list-item":"post-tag-list-item","home-template":"home-template","paged":"paged","page-header":"page-header","hash":"hash","author-bio":"author-bio","author-stats":"author-stats","author-location":"author-location","page-description":"page-description","page-content--archive":"page-content--archive","page-content-inner":"page-content-inner","archives-wrap":"archives-wrap","archive-year-wrap":"archive-year-wrap","archives":"archives","archive-post":"archive-post","archive-post-date":"archive-post-date","outliner-nav-menu":"outliner-nav-menu","outliner-content-table":"outliner-content-table","title":"title","mobile-menu-enabled":"mobile-menu-enabled","mobile-menu-open":"mobile-menu-open","nav-menu-float":"nav-menu-float","backdrop":"backdrop","mobile-menu-closed":"mobile-menu-closed","article-share-box":"article-share-box","on":"on","article-share-input":"article-share-input","article-share-links":"article-share-links","article-share-twitter":"article-share-twitter","article-share-facebook":"article-share-facebook","article-share-pinterest":"article-share-pinterest","article-share-google":"article-share-google","hljs":"hljs","hljs-comment":"hljs-comment","hljs-meta":"hljs-meta","hljs-string":"hljs-string","hljs-variable":"hljs-variable","hljs-template-variable":"hljs-template-variable","hljs-strong":"hljs-strong","hljs-emphasis":"hljs-emphasis","hljs-quote":"hljs-quote","hljs-keyword":"hljs-keyword","hljs-selector-tag":"hljs-selector-tag","hljs-type":"hljs-type","hljs-literal":"hljs-literal","hljs-symbol":"hljs-symbol","hljs-bullet":"hljs-bullet","hljs-attribute":"hljs-attribute","hljs-section":"hljs-section","hljs-name":"hljs-name","hljs-tag":"hljs-tag","hljs-title":"hljs-title","hljs-attr":"hljs-attr","hljs-selector-id":"hljs-selector-id","hljs-selector-class":"hljs-selector-class","hljs-selector-attr":"hljs-selector-attr","hljs-selector-pseudo":"hljs-selector-pseudo","hljs-addition":"hljs-addition","hljs-deletion":"hljs-deletion","hljs-link":"hljs-link"};
 
 /***/ })
 /******/ ]);

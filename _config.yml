@@ -4,9 +4,6 @@ menu:
   archive: /archives
 rss: /atom.xml
 
-# Content
-fancybox: true
-
 # Sidebar
 sidebar: right
 widgets:

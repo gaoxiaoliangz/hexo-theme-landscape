@@ -1,8 +1,9 @@
 const kit = require('./kit')
 const mobilemenu = require('./mobile-menu')
 const contentplus = require('./content-plus')
-require('./funcs')
-require('./style/style.scss')
+
+import './style/style.scss'
+import './share-post'
 
 hljs.initHighlightingOnLoad()
 
