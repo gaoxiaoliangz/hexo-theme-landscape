@@ -49,11 +49,8 @@ contentPlus._setImgWrapFullWidth = function (tar) {
   }
 };
 
-contentPlus._setLinkOpenBlank = function (tar) {
-  if (!tar.attr('target') && !tar.find("img").length && !tar.hasClass("no_blank")) {
-    if (!tar.hasClass('toc-link')) {
-      tar.attr('target', '_blank');
-    }
+contentPlus._addLinkClass = function (tar) {
+  if (!tar.find("img").length) {
     tar.addClass("link");
   }
 }
@@ -73,7 +70,7 @@ contentPlus.layoutContent = function (tar) {
         break;
 
       case "A":
-        contentPlus._setLinkOpenBlank($(this));
+        contentPlus._addLinkClass($(this));
         break;
 
       case "IMG":
@@ -90,7 +87,7 @@ contentPlus.layoutContent = function (tar) {
 contentPlus._expandEle = function (tar, padding) {
   var w1 = tar.parent().width();
   if ($(window).width() < contentPlus.threshold) {
-    padding = 15;
+    padding = 20;
   }
   var w2 = w1 + padding * 2;
   tar.width(w2);

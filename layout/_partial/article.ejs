@@ -14,12 +14,9 @@ const isPage = typeof type !== 'undefined' && type === 'page'
   <div class="content-plus" itemprop="articleBody">
     <% if (post.excerpt && index){ %>
       <%- post.excerpt %>
-      <% if (theme.excerpt_link){ %>
-        <a class="more-link no_blank" href="<%- url_for(post.path) %>#more">
-          <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-          <%- __('read_more') %>
-        </a>
-      <% } %>
+      <a class="more-link no_blank" href="<%- url_for(post.path) %>#more">
+        <%- __('read_more') %>
+      </a>
     <% } else { %>
       <% if (page.toc) { %>
         <%- toc(page.content) %>

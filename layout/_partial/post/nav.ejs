@@ -86,13 +86,10 @@ const next = findNearestNext(post)
     <ul>
       <li class="prev">
         <div class="text"><%- __('next_post') %></div>
-        <a href="<%- url_for(next.path) %>"><%= next.title %></a>
-        <p class="excerpt">
-          <%- generateExcerp(removeMarkdown(next._content)) %> 
-          <a class="more-link no_blank" href="<%- url_for(post.next.path) %>">
-            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-          </a>
-        </p>
+        <a class="nav-link" href="<%- url_for(post.next.path) %>">
+          <h3 class="nav-title" href="<%- url_for(next.path) %>"><%= next.title %></h3>
+          <p class="excerpt"><%- generateExcerp(removeMarkdown(next._content)) %></p>
+        </a>
       </li>
     </ul>
   </div>

@@ -1,4 +1,7 @@
 // reset ///////////////////////////////////////////////////////////////////////////////
+* {
+  box-sizing: border-box;
+}
 html {
   font-size: 16px;
 }
@@ -35,6 +38,7 @@ a {
 }
 ul {
   padding: 0;
+  margin: 0;
   list-style: none;
 }
 
@@ -43,18 +47,44 @@ ul {
 .container-fluid {
   padding: 0 35px;
 }
+.container-fluid {
+  @include tablet {
+    padding: 0 15px;
+  }
+}
+.container {
+  max-width: 900px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.clearfix {
+  &:after {
+    content: " ";
+    clear: both;
+    display: table;
+  }
+}
 .left {
   float: left;
 }
 .right {
   float: right;
 }
-
 .sep {
   display: inline-block;
   margin: 0 7px;
   color: #999;
   font-size: 14px;
+}
+.link {
+  border-bottom: 1px dotted $main_color;
+  color: $main_color;
+  &:hover {
+    color: $main_color;
+    background: lighten($main_color, 55%);
+    border-color: $text_2;
+    border-bottom: 1px solid $main_color;
+  }
 }
 
 
@@ -70,8 +100,6 @@ ul {
     border-color: $text_2;
   }
 }
-
-
 
 
 // content plus /////////////////////////////////////////////////////////////////////////
@@ -112,7 +140,6 @@ ul {
   h1,h2 {
     font-size: 1.6em;
     font-weight: 700;
-    border-bottom: 1px solid $border_1;
     padding-bottom: 10px;
   }
   h3 {
@@ -186,57 +213,9 @@ ul {
     width: 100%;
     margin: 0;
   }
-  pre {
-    border: none;
-    border-radius: 0;
-    background: #fff;
-    color: #666;
-    margin: 0;
-    margin-bottom: 2em;
-    padding: 0;
-    white-space: pre;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    word-wrap: normal;
-    tab-size: 2;
-    font-size: 14px;
-    line-height: 1.6;
-    position: relative;
-    width: 100%;
-    .caption {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      height: 25px;
-      line-height: 25px;
-      font-size: 12px;
-      font-weight: bold;
-      font-family: $sans_font;
-      color: #fff;
-      padding-left: 15px;
-      background: #222;
-      background: #222;
-    }
-    code {
-      font-family: menlo, monospace;
-      white-space: inherit;
-      margin: 0;
-      padding: 15px 0;
-      background: #fff;
-    }
-  }
-  pre.with-code-caption {
-    padding-top: 25px;
-  }
-  a.link {
-    border-bottom: 1px dotted $main_color;
-    color: $main_color;
-    &:hover {
-      color: $main_color;
-      background: #f4efec;
-      border-color: $text_2;
-      border-bottom: 1px solid $main_color;
-    }
+  code {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 16px;
+    border-radius: 3px;
   }
 }
