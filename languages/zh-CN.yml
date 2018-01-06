@@ -18,3 +18,7 @@ rss_feed: RSS Feed
 category: 分类
 tag: 标签
 read_more: 继续阅读
+posts_count:
+  zero: 没有文章
+  one: 一篇文章
+  other: %d 篇文章

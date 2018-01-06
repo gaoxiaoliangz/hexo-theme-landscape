@@ -6,7 +6,7 @@
         <a href="<%- url_for('tags/' + page.tag) %>"><%- page.tag %></a>
       </h1>
       <div class="page-description">
-        <strong><%- page.total %></strong> 篇文章
+        <%- _p('posts_count', page.total) %>
       </div>
     </div>
   <% } %>
@@ -16,7 +16,7 @@
         <a href="<%- url_for('categories/' + page.category) %>"><%- page.category %></a>
       </h1>
       <div class="page-description">
-        <strong><%- page.total %></strong> 篇文章
+        <%- _p('posts_count', page.total) %>
       </div>
     </div>
   <% } %>
