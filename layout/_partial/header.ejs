@@ -3,17 +3,15 @@
     <div class="wrap">
       <h1 class="logo">
         <a href="<%- url_for() %>">
-          <% if (theme.logo){ %>
-            <img src="<%- url_for(theme.logo)%>" alt="<%= config.title %>">
+          <% if (config.logo){ %>
+            <img src="<%- url_for(config.logo)%>" alt="<%= config.title %>">
           <% } else { %>
             <%= config.title %>
           <% } %>
         </a>
       </h1>
-      <% if (theme.subtitle){ %>
-        <h2 id="subtitle-wrap">
-          <a href="<%- url_for() %>" id="subtitle"><%= theme.subtitle %></a>
-        </h2>
+      <% if (config.subtitle){ %>
+        <h2 class="subtitle"><%= config.subtitle %></h2>
       <% } %>
       <%- partial('_partial/navigation', null, {cache: !config.relative_link}) %>
     </div>

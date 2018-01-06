@@ -22,15 +22,15 @@
   %>
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
+  <%- open_graph({twitter_id: config.twitter, google_plus: config.google_plus, fb_admins: config.fb_admins, fb_app_id: config.fb_app_id}) %>
   <% if (theme.rss){ %>
     <link rel="alternate" href="<%= url_for(theme.rss) %>" title="<%= config.title %>" type="application/atom+xml">
   <% } %>
   <% if (config.favicon){ %>
-    <link rel="icon" href="<%- url_for(theme.favicon) %>">
+    <link rel="icon" href="<%- url_for(config.favicon) %>">
   <% } %>
 
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
   <%- css('vendor/normalize-7.0.0') %>
   <%- css('build/main.css?v=1.0.0') %>
 </head>

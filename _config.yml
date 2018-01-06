@@ -3,13 +3,3 @@ menu:
   home: /
   archive: /archives
 rss: /atom.xml
-
-# Miscellaneous
-google_analytics:
-gauges_analytics:
-favicon: img/favicon.png
-logo: img/logo.svg
-twitter:
-google_plus:
-fb_admins:
-fb_app_id:

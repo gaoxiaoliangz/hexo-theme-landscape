@@ -1,9 +1,9 @@
 <%
-const isPage = typeof type !== 'undefined' && type === 'page'
+const is_page = typeof type !== 'undefined' && type === 'page'
 %>
 <article id="<%= post.layout %>-<%= post.slug %>" class="post post-type-<%= post.layout %> <%- index ? 'post--index' : '' %>" itemscope itemprop="blogPost">
   <header class="post-header">
-    <% if (!isPage) { %>
+    <% if (!is_page) { %>
       <%- partial('post/date', {class_name: 'article-date', date_format: __('date_format')}) %>
     <% } %>
     <% if (post.link || post.title){ %>
@@ -24,18 +24,22 @@ const isPage = typeof type !== 'undefined' && type === 'page'
       <%- post.content %>
     <% } %>
   </div>
-  <% if (!index && !isPage) { %>
-  <footer class="post-meta clearfix">
-    <%- partial('post/tag') %>
+  <% if (!index && !is_page) { %>
+    <footer class="post-meta clearfix">
+      <%- partial('post/tag') %>
+      <div class="article-share-links right">
+        <% const encodedUrl = encodeURIComponent(post.permalink) %>
+        <a href="https://twitter.com/intent/tweet?url=<%= encodedUrl %>" class="article-share-twitter" target="_blank" title="Twitter"></a>
+        <a href="https://www.facebook.com/sharer.php?u=<%= encodedUrl %>" class="article-share-facebook" target="_blank" title="Facebook"></a>
+        <a href="http://pinterest.com/pin/create/button/?url=<%= encodedUrl %>" class="article-share-pinterest" target="_blank" title="Pinterest"></a>
+      </div>
+    </footer>
     <% if (post.comments && config.disqus_shortname){ %>
-      <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
+      <section class="comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+      </section>
     <% } %>
-    <div class="article-share-links right">
-      <% const encodedUrl = encodeURIComponent(post.permalink) %>
-      <a href="https://twitter.com/intent/tweet?url=<%= encodedUrl %>" class="article-share-twitter" target="_blank" title="Twitter"></a>
-      <a href="https://www.facebook.com/sharer.php?u=<%= encodedUrl %>" class="article-share-facebook" target="_blank" title="Facebook"></a>
-      <a href="http://pinterest.com/pin/create/button/?url=<%= encodedUrl %>" class="article-share-pinterest" target="_blank" title="Pinterest"></a>
-    </div>
-  </footer>
   <% } %>
 </article>
