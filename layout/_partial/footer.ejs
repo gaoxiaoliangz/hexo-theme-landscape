@@ -1,7 +1,7 @@
 <footer class="colophon">
   <div class="container-fluid">
     <div class="wrap">
-      <div class="info left">&copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %></div>
+      <div class="info left">&copy; <%= date(new Date(), 'YYYY') %> <%= config.title %>. <%- config.author %></div>
       <div class="links right">
         <%- partial('_partial/navigation', null, {cache: !config.relative_link}) %>
       </div>
