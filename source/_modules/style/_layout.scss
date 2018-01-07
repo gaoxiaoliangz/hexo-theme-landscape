@@ -8,11 +8,10 @@ body {
 
 .branding {
   .wrap {
-    padding: $spacing_1 0;
+    padding: 20px 0;
     overflow: hidden;
     line-height: 35px;
     @include tablet {
-      padding: 25px 0;
       .icon {
         float: right;
         margin-top: 0;
