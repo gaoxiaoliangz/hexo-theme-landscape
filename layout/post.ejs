@@ -4,8 +4,5 @@
       <%- partial('_partial/article', {post: page, index: false}) %>
     </div>
   </div>
-
-  <% if(page) { %>
-    <%- partial('_partial/post/nav', {post: page, index: false}) %>
-  <% } %>
+  <%- partial('_partial/post/nav', {post: page, index: false}) %>
 </div>

@@ -1,11 +1,22 @@
-<% const custom_menus = site.posts.data.filter(post => typeof post.menu_order !== 'undefined').sort((a, b) => a.menu_order - b.menu_order) %>
+<%
+  function clean_url(url) {
+    const target = 'index.html'
+    return url.indexOf(target) === url.length - target.length
+      ? url.substr(0, url.length - target.length)
+      : url
+  }
+  const custom_menus = site.posts.data
+    .concat(site.pages.data)
+    .filter(item => item.show_in_menu)
+    .sort((a, b) => (a.menu_order || 0) - (b.menu_order || 0))
+%>
 <ul class="nav-menu">
   <% for (var i in theme.menu){ %>
     <li><a href="<%- url_for(theme.menu[i]) %>"><%= __(i) || i %></a></li>
   <% } %>
   <% if (custom_menus.length !== 0) { %>
     <% custom_menus.forEach(function(post) { %>
-      <li><a href="<%- url_for(post.path) %>"><%- post.title %></a></li>
+      <li><a href="<%- url_for(clean_url(post.path)) %>"><%- post.title %></a></li>
     <% }) %>
   <% } %>
 </ul>

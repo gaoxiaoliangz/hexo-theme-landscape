@@ -1,4 +1,3 @@
-<% var notPage = post => post.layout !== 'page' %>
 <% if (type === 'index' || type === 'tag' || type === 'category'){ %>
   <% if (type === 'tag' || type === 'category') {
     const url = type === 'tag' ? url_for('tags/' + page.tag) : url_for('categories/' + page.category)
@@ -22,7 +21,7 @@
   <% } %>
   <div class="page-content">
     <div class="container">
-      <% page.posts.data.filter(notPage).forEach(function(post){ %>
+      <% page.posts.data.forEach(function(post){ %>
         <%- partial('article', {post: post, index: true}) %>
       <% }) %>
     </div>
@@ -30,14 +29,14 @@
 <% } else { %>
   <div class="page-content page-content--archive">
     <div class="page-content-inner">
-    <% var last; %>
-    <% page.posts.data.filter(notPage).forEach(function(post, i){ %>
-      <% var year = post.date.year(); %>
+    <% let last %>
+    <% page.posts.data.forEach(function(post, i){ %>
+      <% let year = post.date.year() %>
       <% if (last != year){ %>
         <% if (last != null){ %>
           </div></section>
         <% } %>
-        <% last = year; %>
+        <% last = year %>
         <section class="archives-wrap">
           <h2 class="archive-year-wrap">
             <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>

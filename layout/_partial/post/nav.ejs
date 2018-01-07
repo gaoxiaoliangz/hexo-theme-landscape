@@ -1,16 +1,4 @@
 <%
-function is_post_post(post) {
-  return post && post.layout === 'post'
-}
-function findNearestNext(post) {
-  if (!post) {
-    return
-  }
-  if (is_post_post(post.next)) {
-    return post.next
-  }
-  return findNearestNext(post.next)
-}
 function generateExcerp(text) {
   const text2 = text.replace(/{%(.*?)%}/g, __('img_txt_placeholder'))
   return Array.prototype
@@ -78,7 +66,7 @@ function removeMarkdown(md, options) {
   }
   return output;
 }
-const next = findNearestNext(post)
+const next = post.next
 %>
 <% if (next) { %>
 <div class="nav-bottom">
