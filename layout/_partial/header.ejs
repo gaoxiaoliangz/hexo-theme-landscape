@@ -3,8 +3,8 @@
     <div class="wrap">
       <h1 class="logo">
         <a href="<%- url_for() %>">
-          <% if (config.logo){ %>
-            <img src="<%- url_for(config.logo)%>" alt="<%= config.title %>">
+          <% if (wp_get_config('logo')){ %>
+            <img src="<%- url_for(wp_get_config('logo'))%>" alt="<%= config.title %>">
           <% } else { %>
             <%= config.title %>
           <% } %>

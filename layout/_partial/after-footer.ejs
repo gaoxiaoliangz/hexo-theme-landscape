@@ -1,6 +1,6 @@
-<% if (config.disqus_shortname){ %>
+<% if (wp_get_config('disqus_shortname')){ %>
 <script>
-  var disqus_shortname = '<%= config.disqus_shortname %>';
+  var disqus_shortname = '<%= wp_get_config('disqus_shortname') %>';
   <% if (page.permalink){ %>
   var disqus_url = '<%= page.permalink %>';
   <% } %>
@@ -14,8 +14,8 @@
 </script>
 <% } %>
 
-<script>window.__BLOG_NAME__ = "<%- config.title %>"</script>
+<script>window.__BLOG_NAME__ = '<%- config.title %>'</script>
 <%- js('vendor/jquery-3.2.1') %>
 <%- js('vendor/highlight-9.0.0') %>
-<%- js('build/main.js?v=1.0.0') %>
+<%- js_v('build/main') %>
 <%- partial('gauges-analytics') %>

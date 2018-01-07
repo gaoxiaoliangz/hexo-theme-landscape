@@ -45,12 +45,7 @@ ul {
 
 // class ///////////////////////////////////////////////////////////////////////////////
 .container-fluid {
-  padding: 0 35px;
-}
-.container-fluid {
-  @include tablet {
-    padding: 0 15px;
-  }
+  padding: 0 20px;
 }
 .container {
   max-width: 900px;

@@ -1,5 +1,2 @@
-# Header
-menu:
-  home: /
-  archive: /archives
-rss: /atom.xml
+theme_name: whitepaper
+version: 1.0.1

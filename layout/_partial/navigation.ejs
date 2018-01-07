@@ -11,8 +11,11 @@
     .sort((a, b) => (a.menu_order || 0) - (b.menu_order || 0))
 %>
 <ul class="nav-menu">
-  <% for (var i in theme.menu){ %>
-    <li><a href="<%- url_for(theme.menu[i]) %>"><%= __(i) || i %></a></li>
+  <% const menu = wp_get_config('menu') %>
+  <% if (menu) { %>
+    <% for (let i in menu){%>
+      <li><a href="<%- url_for(menu[i]) %>"><%= __(i) || i %></a></li>
+    <% } %>
   <% } %>
   <% if (custom_menus.length !== 0) { %>
     <% custom_menus.forEach(function(post) { %>

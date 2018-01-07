@@ -22,15 +22,20 @@
   %>
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <%- open_graph({twitter_id: config.twitter, google_plus: config.google_plus, fb_admins: config.fb_admins, fb_app_id: config.fb_app_id}) %>
-  <% if (theme.rss){ %>
-    <link rel="alternate" href="<%= url_for(theme.rss) %>" title="<%= config.title %>" type="application/atom+xml">
-  <% } %>
-  <% if (config.favicon){ %>
-    <link rel="icon" href="<%- url_for(config.favicon) %>">
+  <%- 
+    open_graph({
+      twitter_id: wp_get_config('twitter'),
+      google_plus: wp_get_config('google_plus'),
+      fb_admins: wp_get_config('fb_admins'),
+      fb_app_id: wp_get_config('fb_app_id')
+    })
+  %>
+  <link rel="alternate" href="<%= url_for('/atom.xml') %>" title="<%= config.title %>" type="application/atom+xml">
+  <% if (wp_get_config('favicon')){ %>
+    <link rel="icon" href="<%- url_for(wp_get_config('favicon')) %>">
   <% } %>
 
   <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
   <%- css('vendor/normalize-7.0.0') %>
-  <%- css('build/main.css?v=1.0.0') %>
+  <%- css_v('build/main') %>
 </head>

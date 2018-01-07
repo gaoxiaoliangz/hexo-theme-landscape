@@ -1,5 +1,5 @@
-<%
-const is_page = typeof type !== 'undefined' && type === 'page'
+<% 
+  const is_page = typeof type !== 'undefined' && type === 'page'
 %>
 <article id="<%= post.layout %>-<%= post.slug %>" class="post post-type-<%= post.layout %> <%- index ? 'post--index' : '' %>" itemscope itemprop="blogPost">
   <header class="post-header">
@@ -34,12 +34,12 @@ const is_page = typeof type !== 'undefined' && type === 'page'
         <a href="http://pinterest.com/pin/create/button/?url=<%= encodedUrl %>" class="article-share-pinterest" target="_blank" title="Pinterest"></a>
       </div>
     </footer>
-    <% if (post.comments && config.disqus_shortname){ %>
-      <section class="comments">
-        <div id="disqus_thread">
-          <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        </div>
-      </section>
-    <% } %>
+  <% } %>
+  <% if (post.comments && wp_get_config('disqus_shortname')) { %>
+    <section class="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    </section>
   <% } %>
 </article>
